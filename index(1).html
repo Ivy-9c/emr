@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MedPocket 多國語言個人醫療資訊卡">
+<title>MedPocket｜個人醫療資訊</title>
+<style>
+:root{
+  --bg:#f3f7fb;--card:#fff;--text:#172033;--muted:#667085;
+  --primary:#2563eb;--primary-dark:#1d4ed8;--line:#e2e8f0;
+  --soft:#eff6ff;--success:#047857;--warning:#b45309;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",
+  "Noto Sans TC","Noto Sans KR","Noto Sans JP",sans-serif;
+}
+header{
+  color:white;padding:26px 6vw;
+  background:linear-gradient(135deg,#1d4ed8,#0f766e);
+}
+.header-inner{
+  max-width:1180px;margin:auto;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+.brand h1{margin:0;font-size:32px;letter-spacing:.5px}
+.brand p{margin:6px 0 0;opacity:.9}
+.language{
+  border:0;border-radius:10px;padding:10px 13px;background:white;
+  color:#172033;font-size:15px;cursor:pointer;
+}
+main{max-width:1180px;margin:0 auto;padding:30px 20px 50px}
+.hero{
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:28px;margin-bottom:20px;box-shadow:0 8px 30px rgba(15,23,42,.06);
+}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.hero h2{margin:0 0 8px;font-size:28px}
+.hero p{margin:0;color:var(--muted)}
+.badge{
+  display:inline-block;padding:6px 10px;border-radius:999px;
+  background:#dcfce7;color:#166534;font-size:13px;font-weight:700;
+}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:22px;box-shadow:0 6px 22px rgba(15,23,42,.045);
+}
+.card.full{grid-column:1/-1}
+.card h3{margin:0 0 17px;font-size:19px}
+.info-row{
+  display:flex;justify-content:space-between;gap:20px;
+  padding:13px 0;border-bottom:1px solid var(--line);
+}
+.info-row:last-child{border-bottom:0}
+.label{color:var(--muted);font-size:14px}
+.value{text-align:right;font-weight:650}
+.medical-card{
+  border-left:5px solid var(--primary);background:var(--soft);
+}
+.condition-title{font-size:20px;font-weight:750;margin-bottom:6px}
+.condition-note{color:var(--muted);line-height:1.7}
+.empty{
+  padding:18px;border-radius:10px;background:#f8fafc;
+  color:var(--muted);border:1px dashed #cbd5e1;
+}
+footer{
+  max-width:1180px;margin:0 auto;padding:0 20px 35px;
+  color:var(--muted);font-size:13px;line-height:1.7;
+}
+.disclaimer{
+  background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;
+  border-radius:12px;padding:14px 16px;margin-top:20px;
+}
+@media(max-width:760px){
+  .grid{grid-template-columns:1fr}
+  .card.full{grid-column:auto}
+  .hero h2{font-size:24px}
+  .info-row{display:block}
+  .value{text-align:left;margin-top:4px}
+  .brand h1{font-size:27px}
+}
+@media print{
+  body{background:#fff}
+  header{background:#fff;color:#000;border-bottom:1px solid #ddd}
+  .language{display:none}
+  .hero,.card{box-shadow:none}
+  main{padding-top:15px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <h1>MedPocket</h1>
+      <p data-i18n="subtitle">多國語言個人醫療資訊卡</p>
+    </div>
+    <select id="language" class="language" aria-label="Language">
+      <option value="zh">繁體中文</option>
+      <option value="en">English</option>
+      <option value="ko">한국어</option>
+      <option value="ja">日本語</option>
+      <option value="vi">Tiếng Việt</option>
+    </select>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-top">
+      <div>
+        <span class="badge" data-i18n="medicalProfile">Medical Profile</span>
+        <h2 data-i18n="pageTitle">個人醫療資訊</h2>
+        <p data-i18n="pageDescription">快速查看重要的個人與醫療資訊。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <h3 data-i18n="personalInfo">個人資料</h3>
+      <div class="info-row">
+        <span class="label" data-i18n="name">姓名</span>
+        <span class="value">林似恩</span>
+      </div>
+      <div class="info-row">
+        <span class="label" data-i18n="birthDate">出生日期</span>
+        <span class="value">2011/08/05</span>
+      </div>
+    </article>
+
+    <article class="card medical-card">
+      <h3 data-i18n="medicalHistory">疾病史</h3>
+      <div class="condition-title" data-i18n="atopicDermatitis">異位性皮膚炎</div>
+      <div class="condition-note" data-i18n="atopicNote">
+        已提供的個人醫療資訊。
+      </div>
+    </article>
+
+    <article class="card full">
+      <h3 data-i18n="otherHistory">其他醫療資訊</h3>
+      <div class="empty" data-i18n="noOtherData">
+        目前尚未提供其他疾病史、家族史、手術史、用藥史、過敏史、疫苗史或其他醫療資訊。
+      </div>
+    </article>
+  </section>
+
+  <div class="disclaimer" data-i18n="disclaimer">
+    本頁面僅用於顯示使用者提供的醫療資訊，不構成醫療診斷或治療建議。如遇緊急醫療情況，請尋求當地醫療協助。
+  </div>
+</main>
+
+<footer>
+  <span data-i18n="footer">
+    MedPocket｜單一 HTML 靜態頁面。此頁面不提供資料編輯、匯入或匯出功能。
+  </span>
+</footer>
+
+<script>
+const translations = {
+  zh:{
+    subtitle:"多國語言個人醫療資訊卡",
+    medicalProfile:"醫療資訊",
+    pageTitle:"個人醫療資訊",
+    pageDescription:"快速查看重要的個人與醫療資訊。",
+    personalInfo:"個人資料",
+    name:"姓名",
+    birthDate:"出生日期",
+    medicalHistory:"疾病史",
+    atopicDermatitis:"異位性皮膚炎",
+    atopicNote:"目前已提供的個人醫療資訊。",
+    otherHistory:"其他醫療資訊",
+    noOtherData:"目前尚未提供其他疾病史、家族史、手術史、用藥史、過敏史、疫苗史或其他醫療資訊。",
+    disclaimer:"本頁面僅用於顯示使用者提供的醫療資訊，不構成醫療診斷或治療建議。如遇緊急醫療情況，請尋求當地醫療協助。",
+    footer:"MedPocket｜單一 HTML 靜態頁面。此頁面不提供資料編輯、匯入或匯出功能。"
+  },
+  en:{
+    subtitle:"Multilingual Personal Medical Information Card",
+    medicalProfile:"Medical Profile",
+    pageTitle:"Personal Medical Information",
+    pageDescription:"A quick view of important personal and medical information.",
+    personalInfo:"Personal Information",
+    name:"Name",
+    birthDate:"Date of Birth",
+    medicalHistory:"Medical History",
+    atopicDermatitis:"Atopic Dermatitis",
+    atopicNote:"Currently provided personal medical information.",
+    otherHistory:"Other Medical Information",
+    noOtherData:"No other medical history, family history, surgical history, medication history, allergies, vaccinations, or other medical information has been provided.",
+    disclaimer:"This page only displays medical information provided by the user. It is not medical diagnosis or treatment advice. Seek local medical care in an emergency.",
+    footer:"MedPocket | Single-file HTML static page. No data editing, import, or export functions are provided."
+  },
+  ko:{
+    subtitle:"다국어 개인 의료 정보 카드",
+    medicalProfile:"의료 정보",
+    pageTitle:"개인 의료 정보",
+    pageDescription:"중요한 개인 및 의료 정보를 빠르게 확인합니다.",
+    personalInfo:"개인 정보",
+    name:"이름",
+    birthDate:"생년월일",
+    medicalHistory:"질병력",
+    atopicDermatitis:"아토피 피부염",
+    atopicNote:"현재 제공된 개인 의료 정보입니다.",
+    otherHistory:"기타 의료 정보",
+    noOtherData:"현재 다른 질병력, 가족력, 수술력, 복약력, 알레르기, 예방접종 또는 기타 의료 정보가 제공되지 않았습니다.",
+    disclaimer:"이 페이지는 사용자가 제공한 의료 정보만 표시하며 의료 진단이나 치료 조언을 제공하지 않습니다. 응급 상황에서는 현지 의료기관의 도움을 받으세요.",
+    footer:"MedPocket | 단일 HTML 정적 페이지. 데이터 편집, 가져오기 및 내보내기 기능은 제공하지 않습니다."
+  },
+  ja:{
+    subtitle:"多言語パーソナル医療情報カード",
+    medicalProfile:"医療情報",
+    pageTitle:"個人医療情報",
+    pageDescription:"重要な個人情報と医療情報をすぐに確認できます。",
+    personalInfo:"個人情報",
+    name:"氏名",
+    birthDate:"生年月日",
+    medicalHistory:"既往歴",
+    atopicDermatitis:"アトピー性皮膚炎",
+    atopicNote:"現在提供されている個人の医療情報です。",
+    otherHistory:"その他の医療情報",
+    noOtherData:"その他の既往歴、家族歴、手術歴、服薬歴、アレルギー、予防接種などの医療情報はまだ提供されていません。",
+    disclaimer:"このページはユーザーが提供した医療情報を表示するためのもので、診断や治療の助言を行うものではありません。緊急時は現地の医療機関へ相談してください。",
+    footer:"MedPocket | 単一HTMLの静的ページです。データ編集、インポート、エクスポート機能はありません。"
+  },
+  vi:{
+    subtitle:"Thẻ thông tin y tế cá nhân đa ngôn ngữ",
+    medicalProfile:"Thông tin y tế",
+    pageTitle:"Thông tin y tế cá nhân",
+    pageDescription:"Xem nhanh các thông tin cá nhân và y tế quan trọng.",
+    personalInfo:"Thông tin cá nhân",
+    name:"Họ tên",
+    birthDate:"Ngày sinh",
+    medicalHistory:"Tiền sử bệnh",
+    atopicDermatitis:"Viêm da cơ địa",
+    atopicNote:"Thông tin y tế cá nhân hiện đã được cung cấp.",
+    otherHistory:"Thông tin y tế khác",
+    noOtherData:"Chưa có thông tin khác về tiền sử bệnh, tiền sử gia đình, phẫu thuật, thuốc đang dùng, dị ứng, tiêm chủng hoặc thông tin y tế khác.",
+    disclaimer:"Trang này chỉ hiển thị thông tin y tế do người dùng cung cấp và không thay thế chẩn đoán hoặc tư vấn điều trị. Trong trường hợp khẩn cấp, hãy tìm sự trợ giúp y tế tại địa phương.",
+    footer:"MedPocket | Trang HTML tĩnh một tệp. Không có chức năng chỉnh sửa, nhập hoặc xuất dữ liệu."
+  }
+};
+
+const language = document.getElementById("language");
+
+function applyLanguage(lang){
+  const t = translations[lang];
+  document.documentElement.lang = lang === "zh" ? "zh-Hant" : lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key = el.dataset.i18n;
+    if(t[key]) el.textContent = t[key];
+  });
+}
+
+language.addEventListener("change", e => applyLanguage(e.target.value));
+applyLanguage("zh");
+</script>
+</body>
+</html>
